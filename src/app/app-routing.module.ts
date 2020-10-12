@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './shared/presentation/home/home.component';
 import { LoginComponent } from './auth/presentation/login/login.component';
 import { RegisterComponent } from './auth/presentation/register/register.component';
+import { AboutUsComponent } from './shared/presentation/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'coffee-shop',
     loadChildren: () => import('./coffeeshop/coffeeshop.module').then(mod => mod.CoffeeshopModule)
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent
   },
   {
     path: '**',
