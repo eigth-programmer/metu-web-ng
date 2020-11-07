@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './presentation/login/login.component';
-import { RegisterComponent } from './presentation/register/register.component';
+import { RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenMapper } from './entities/session/infrastructure/token-mapper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
-  imports: [
-    CommonModule
-  ],
-  exports : [LoginComponent, RegisterComponent]
+  declarations: [LoginComponent],
+    imports: [
+      CommonModule,
+      RouterModule,
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule
+    ],
+  exports : [LoginComponent],
+  providers: [
+    TokenMapper
+  ]
 })
 export class AuthModule { }

@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {LoginComponent} from '../../../auth/presentation/login/login.component';
+import {SessionService} from '../../../auth/services/session.service';
+import {login} from '../../../auth/entities/session/application/login';
+import {register} from '../../../auth/entities/session/application/register';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +13,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+    private service: SessionService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
+  openLogin(){
+    this.dialog
+      .open(LoginComponent, {})
+      .afterClosed()
+      .subscribe(result => {
+        if(result){
+          if(result.type ==="login"){
+            login(result.username, result.password, this.service)
+              .subscribe(res => {
+
+              }, error => {
+                console.error('error on login', error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Algo ha salido mal, no se pudo acceder!',
+                })
+              });
+          } else if(result.type ==="register"){
+            register(result.nickName, result.username, result.password, this.service)
+              .subscribe(res => {
+
+              }, error => {
+                console.error('error on login', error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Algo ha salido mal, no se pudo completar el registro!',
+                })
+              })
+          }
+        }
+      }, error => {
+        console.error('error on login dialog', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo ha salido mal!',
+        })
+      })
+  }
+
+  openShoppingCart(){
+
+  }
 }

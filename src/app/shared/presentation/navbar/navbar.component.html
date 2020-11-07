@@ -1,1 +1,33 @@
-<p>navbar works!</p>
+<div class="header-container">
+  <div class="logo">
+    <img src="../../../../assets/images/business/CASA-MITIU-LOGO-(horizontal).svg"
+         alt="business-logo" class="business-logo">
+  </div>
+  <nav class="nav-links">
+    <ul class="link-list">
+      <li>Home
+        <a class="link-item" routerLink=""></a>
+      </li>
+      <li>Tienda
+        <a class="link-item" routerLink=""></a>
+      </li>
+      <li>Cofiteria
+        <a class="link-item" routerLink=""></a>
+      </li>
+      <li>Recetas
+        <a class="link-item" routerLink=""></a>
+      </li>
+      <li>Sobre Nosotros
+        <a class="link-item" routerLink=""></a>
+      </li>
+    </ul>
+  </nav>
+  <div class="icons">
+    <button mat-icon-button class="icon" (click)="openLogin()">
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" (click)="openShoppingCart()">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
+</div>
