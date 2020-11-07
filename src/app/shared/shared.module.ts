@@ -10,6 +10,12 @@ import { MatIconModule } from  '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { SectionsComponent } from './presentation/sections/sections.component';
+import { CoffeeShopComponent } from './presentation/coffee-shop/coffee-shop.component';
+import { RecipeShopComponent } from './presentation/recipe-shop/recipe-shop.component';
+import { StoreComponent } from './presentation/store/store.component';
+import { ProductCardComponent } from './presentation/product-card/product-card.component';
+import { RecipeCardComponent } from './presentation/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,13 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     AboutUsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    SectionsComponent,
+    CoffeeShopComponent,
+    RecipeShopComponent,
+    StoreComponent,
+    ProductCardComponent,
+    RecipeCardComponent
   ],
   imports: [
     CommonModule,
@@ -29,9 +41,12 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     HomeComponent,
-    NavbarComponent,
-    FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ShoppingCartComponent,
+    SectionsComponent,
+    CoffeeShopComponent,
+    RecipeShopComponent,
+    StoreComponent
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},
