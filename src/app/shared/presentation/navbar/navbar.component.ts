@@ -5,6 +5,7 @@ import {SessionService} from '../../../auth/services/session.service';
 import {login} from '../../../auth/entities/session/application/login';
 import {register} from '../../../auth/entities/session/application/register';
 import Swal from 'sweetalert2';
+import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-navbar',
@@ -63,6 +64,17 @@ export class NavbarComponent implements OnInit {
   }
 
   openShoppingCart(){
+    this.dialog.open(ShoppingCartComponent, {})
+      .afterClosed()
+      .subscribe(result => {
 
+      }, error => {
+        console.error('error on shopping cart dialog', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo ha salido mal!',
+        })
+      })
   }
 }

@@ -1,0 +1,42 @@
+.tabs {
+  margin: 0;
+
+  .tab{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+
+    .login-image {
+      height: 6em;
+      width: 3em;
+    }
+
+    .login-form {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-content: center;
+      background: #463333;
+
+      .buttons .exit-button{
+        border-radius: 24px;
+        background: #ebd4d4;
+      }
+
+      .buttons .accept-button{
+        border-radius: 24px;
+        background: #685454;
+      }
+    }
+
+    .register-form {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-content: center;
+      background: #ebd4d4;
+    }
+  }
+}

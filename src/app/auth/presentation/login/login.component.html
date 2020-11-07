@@ -1,1 +1,60 @@
+<mat-tab-group class="tabs">
+  <mat-tab label="Login" class="tab">
+    <img src="assets/images/unDraw/loginCapuccinoPalette.svg"
+         alt="login-img"
+         class="login-image">
 
+    <div class="login-form">
+      <form [formGroup]="loginForm">
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error>
+            Por favor introduce un email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error>
+            Por favor introduce una contraseña
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <div class="buttons">
+        <button mat-button class="exit-button">Salir</button>
+        <button mat-button class="accept-button" (click)="onLogin()">Login</button>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Registro" class="tab">
+    <img src="assets/images/unDraw/registerCapuccinoPalette.svg"
+         alt="register-img"
+         class="register-image">
+    
+    <div class="register-form">
+      <form [formGroup]="registerForm">
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="nickName" formControlName="nickName" required>
+          <mat-error>
+            Por favor introduce un nick name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error>
+            Por favor introduce un email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error>
+            Porfavor introduce una contraseña
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <div class="buttons">
+        <button mat-button class="exit-button">Salir</button>
+        <button mat-button class="accept-button" (click)="onRegister()">Registrarse</button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

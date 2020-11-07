@@ -3,6 +3,7 @@
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
+  background: #835858;
 
   .logo {
     margin-left: 1em;
@@ -25,6 +26,7 @@
       li {
         margin: 0 5px 0 5px;
         font-size: 1.5em;
+        color: #fff0f0;
       }
     }
   }
@@ -35,6 +37,6 @@
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    color: #685454;
+    color: #fff0f0;
   }
 }
