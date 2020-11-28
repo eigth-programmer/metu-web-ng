@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   registerForm: FormGroup;
+  showLogin: boolean = true;
 
   constructor(private fb: FormBuilder,
               public dialogRef: MatDialogRef<LoginComponent>,

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './shared/presentation/home/home.component';
-import { AboutUsComponent } from './shared/presentation/about-us/about-us.component';
-import {SectionsComponent} from './shared/presentation/sections/sections.component';
-import {StoreComponent} from './shared/presentation/store/store.component';
-import {CoffeeShopComponent} from './shared/presentation/coffee-shop/coffee-shop.component';
-import {RecipeShopComponent} from './shared/presentation/recipe-shop/recipe-shop.component';
+import { HomeComponent } from './store/presentation/home/home.component';
+import { AboutUsComponent } from './store/presentation/about-us/about-us.component';
+import {SectionsComponent} from './store/presentation/sections/sections.component';
+import {StoreComponent} from './store/presentation/store/store.component';
+import {CoffeeShopComponent} from './store/presentation/coffee-shop/coffee-shop.component';
+import {RecipeShopComponent} from './store/presentation/recipe-shop/recipe-shop.component';
+import {ManagementGuardService} from './auth/middleware/management-guard.service';
+import {AuthGuardService} from './auth/middleware/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -13,7 +15,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: '',
+        path: 'home',
         component: SectionsComponent
       },
       {
@@ -25,10 +27,19 @@ const routes: Routes = [
         component:CoffeeShopComponent,
       },
       {
-        path: 'recipes',
+        path: 'recipes-shop',
         component: RecipeShopComponent
+      },
+      {
+        path: 'about-us',
+        component: AboutUsComponent
       }
     ]
+  },
+  {
+    path: 'management',
+    loadChildren: () => import('./management/management.module').then(m => m.ManagementModule),
+    canActivate: [AuthGuardService, ManagementGuardService],
   },
   {
     path: '**',

@@ -1,0 +1,59 @@
+<div class="footer-container">
+  <div class="blocks">
+    <div class="first-block">
+      <h2 class="title">Sobre nosotros</h2>
+      <div class="content">
+        <p class="content-text">Somos un pequeño negocio familiar especializado en la repostería y los productos rumanos</p>
+        <div class="social">
+          <span class="fab fa-facebook-f"><a href="{{instagram}}"></a></span>
+          <span class="fab fa-instagram"><a href="{{facebook}}"></a></span>
+        </div>
+      </div>
+    </div>
+    <div class="second-block">
+      <h2 class="title">Dirección</h2>
+      <div class="content">
+        <div class="phone">
+          <span class="content-line"><mat-icon>call</mat-icon>{{phone}}</span>
+        </div>
+        <div>
+          <span class="content-line"><mat-icon>add_location</mat-icon>{{address}}</span>
+        </div>
+        <div>
+          <span class="content-line"><mat-icon>email</mat-icon>{{email}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="third-block">
+      <h2 class="title">Contacta con nosotros</h2>
+      <div class="content">
+        <form [formGroup]="form">
+          <mat-form-field class="email-input">
+            <input matInput placeholder="Email" formControlName="email" required>
+            <mat-error>
+              Por favor introduce un email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="text-input">
+            <textarea matInput placeholder="Mensaje" formControlName="message" required>
+            </textarea>
+            <mat-error>
+              Por favor introduce una texto
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-button (click)="onClickSend()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="certs">
+    <p class="created">Creado y distribuido por
+      <a href="{{linkedin}}">Sergio Peña Bayona</a> | 2020 Todos los derechos reservados
+    </p>
+    <div class="technologies">
+      <img src="../../../../assets/images/business/stripe.svg" alt="stripe-logo">
+    </div>
+  </div>
+</div>

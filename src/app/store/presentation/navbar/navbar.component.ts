@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginComponent} from '../../../auth/presentation/login/login.component';
-import {SessionService} from '../../../auth/services/session.service';
+import {SessionWebService} from '../../../auth/services/session-web.service';
 import {login} from '../../../auth/entities/session/application/login';
 import {register} from '../../../auth/entities/session/application/register';
 import Swal from 'sweetalert2';
@@ -16,14 +16,17 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private service: SessionService) { }
+    private service: SessionWebService) { }
 
   ngOnInit(){
   }
 
   openLogin(){
     this.dialog
-      .open(LoginComponent, {})
+      .open(LoginComponent, {
+        width: '1050px',
+        height: '650px',
+      })
       .afterClosed()
       .subscribe(result => {
         if(result){
@@ -64,7 +67,10 @@ export class NavbarComponent implements OnInit {
   }
 
   openShoppingCart(){
-    this.dialog.open(ShoppingCartComponent, {})
+    this.dialog.open(ShoppingCartComponent, {
+      width: '1050px',
+      height: '650px',
+    })
       .afterClosed()
       .subscribe(result => {
 

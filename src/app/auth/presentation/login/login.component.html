@@ -1,60 +1,74 @@
-<mat-tab-group class="tabs">
-  <mat-tab label="Login" class="tab">
-    <img src="assets/images/unDraw/loginCapuccinoPalette.svg"
+<div class="login-container" *ngIf="showLogin">
+  <div class="left-panel">
+    <img src="../../../../assets/images/unDraw/login-capuccino-palette.svg"
          alt="login-img"
          class="login-image">
+    <p>¿Nuevo por aquí? Accede a nuestro formulario de registro</p>
+    <button mat-button class="change-to-register" (click)="showLogin = false">Register</button>
+  </div>
 
-    <div class="login-form">
-      <form [formGroup]="loginForm">
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="Email" formControlName="email" required>
-          <mat-error>
-            Por favor introduce un email
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Password" formControlName="password" required>
-          <mat-error>
-            Por favor introduce una contraseña
-          </mat-error>
-        </mat-form-field>
-      </form>
-      <div class="buttons">
-        <button mat-button class="exit-button">Salir</button>
-        <button mat-button class="accept-button" (click)="onLogin()">Login</button>
-      </div>
+  <div class="login-panel">
+    <h2 class="title">Login</h2>
+
+    <form [formGroup]="loginForm">
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error>
+          Por favor introduce un email
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Por favor introduce una contraseña
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <div class="buttons">
+      <button mat-button class="exit-button">Salir</button>
+      <button mat-button class="accept-button" (click)="onLogin()">Login</button>
     </div>
-  </mat-tab>
-  <mat-tab label="Registro" class="tab">
-    <img src="assets/images/unDraw/registerCapuccinoPalette.svg"
+  </div>
+</div>
+
+<div class="register-container" *ngIf="!showLogin">
+  <div class="left-panel">
+    <img src="../../../../assets/images/unDraw/register-capuccino-palette.svg"
          alt="register-img"
          class="register-image">
-    
-    <div class="register-form">
-      <form [formGroup]="registerForm">
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="nickName" formControlName="nickName" required>
-          <mat-error>
-            Por favor introduce un nick name
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="Email" formControlName="email" required>
-          <mat-error>
-            Por favor introduce un email
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Password" formControlName="password" required>
-          <mat-error>
-            Porfavor introduce una contraseña
-          </mat-error>
-        </mat-form-field>
-      </form>
-      <div class="buttons">
-        <button mat-button class="exit-button">Salir</button>
-        <button mat-button class="accept-button" (click)="onRegister()">Registrarse</button>
-      </div>
+
+    <p>¿Tienes ya una cuenta? Accede a través del login</p>
+    <button mat-button class="change-to-register" (click)="showLogin = true">Login</button>
+  </div>
+
+  <div class="register-panel">
+    <h2 class="title">Registro</h2>
+
+    <form [formGroup]="registerForm">
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="nickName" formControlName="nickName" required>
+        <mat-error>
+          Por favor introduce un nick name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error>
+          Por favor introduce un email
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Porfavor introduce una contraseña
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <div class="buttons">
+      <button mat-button class="exit-button">Salir</button>
+      <button mat-button class="accept-login" (click)="onLogin()">Login</button>
     </div>
-  </mat-tab>
-</mat-tab-group>
+  </div>
+</div>

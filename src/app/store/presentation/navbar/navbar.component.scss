@@ -26,7 +26,19 @@
       li {
         margin: 0 5px 0 5px;
         font-size: 1.5em;
-        color: #fff0f0;
+
+        a {
+          text-decoration: none;
+          color: #fff0f0;
+        }
+
+        a:hover {
+          cursor: pointer;
+        }
+
+        a:active{
+          color: #f9813a;
+        }
       }
     }
   }

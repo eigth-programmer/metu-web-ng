@@ -1,0 +1,76 @@
+.footer-container{
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #463333;
+
+  .blocks {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .first-block, .second-block, .third-block{
+      flex-grow: 1;
+
+      .title {
+        font-size: 24px;
+        color: bisque;
+      }
+    }
+
+    .first-block{
+      margin: 0 10px 0 20px;
+
+      .content .content-text{
+        font-size: 16px;
+        color: bisque;
+        text-align: justify;
+      }
+    }
+
+    .second-block{
+      margin: 0 10px 0 10px;
+
+      .content {
+        color: bisque;
+      }
+    }
+
+    .third-block{
+      margin: 0 20px 0 20px;
+
+      .content {
+        color: bisque;
+      }
+    }
+  }
+
+  .certs{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+
+    p {
+      justify-content: center;
+      color: bisque;
+      margin: 0;
+
+      a{
+        text-decoration: none;
+      }
+    }
+
+    .technologies img{
+      justify-content: center;
+      height: 150px;
+      color: gray;
+    }
+  }
+}
+
+
