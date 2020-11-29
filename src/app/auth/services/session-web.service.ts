@@ -11,7 +11,7 @@ import {map} from 'rxjs/operators';
 })
 export class SessionWebService extends AbstractSessionService{
 
-  BASE_URL: string;
+  private BASE_URL: string;
 
   constructor(private httpClient: HttpClient, private mapper: TokenMapper) {super();}
 
