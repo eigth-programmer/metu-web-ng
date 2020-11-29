@@ -3,13 +3,16 @@ import {UserAbstractService} from '../entities/user/infrastructure/user-abstract
 import {IUser} from '../entities/user/domain/IUser';
 import {IUserOut} from '../entities/user/domain/IUserOut';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService extends UserAbstractService{
 
-  constructor() {super();}
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {super();}
 
   create(user: IUserOut): Observable<IUser> {
     return null;

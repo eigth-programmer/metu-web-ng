@@ -3,13 +3,16 @@ import {ReviewAbstractService} from '../entities/review/infrastructure/review-ab
 import {IReviewOut} from '../entities/review/domain/IReviewOut';
 import {Observable} from 'rxjs';
 import {IReview} from '../entities/review/domain/IReview';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService extends ReviewAbstractService{
 
-  constructor() {
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {
     super();
   }
 

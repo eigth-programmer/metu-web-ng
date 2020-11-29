@@ -3,13 +3,16 @@ import {OrderAbstractService} from '../entities/order/infrastructure/order-abstr
 import {IOrderOut} from '../entities/order/domain/IOrderOut';
 import {Observable} from 'rxjs';
 import {IOrder} from '../entities/order/domain/IOrder';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService extends OrderAbstractService{
 
-  constructor() {
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {
     super();
   }
 

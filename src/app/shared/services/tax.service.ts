@@ -3,13 +3,16 @@ import {TaxAbstractService} from '../entities/tax/infrastructure/tax-abstract-se
 import {IReview} from '../entities/review/domain/IReview';
 import {Observable} from 'rxjs';
 import {ITax} from '../entities/tax/domain/ITax';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaxService extends TaxAbstractService{
 
-  constructor() {
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {
     super();
   }
 

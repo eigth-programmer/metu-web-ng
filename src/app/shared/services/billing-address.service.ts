@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import {BillingAddressAbstractService} from '../entities/billing-address/infrastructure/billing-address-abstract-service';
 import {IBillingAddress} from '../entities/billing-address/domain/IBillingAddress';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillingAddressService extends BillingAddressAbstractService{
 
-  constructor() {
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {
     super();
   }
 
@@ -23,10 +26,11 @@ export class BillingAddressService extends BillingAddressAbstractService{
     return null;
   }
 
-  search(params: any) {
+  search(params: any): Observable<IBillingAddress[]> {
+    return null;
   }
 
-  update(billingAddress: IBillingAddress): Observable<IBillingAddress[]> {
+  update(billingAddress: IBillingAddress): Observable<IBillingAddress> {
     return null;
   }
 }

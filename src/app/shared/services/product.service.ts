@@ -3,13 +3,16 @@ import {ProductAbstractService} from '../entities/product/infrastructure/product
 import {IProductOut} from '../entities/product/domain/IProductOut';
 import {Observable} from 'rxjs';
 import {IProduct} from '../entities/product/domain/IProduct';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService extends ProductAbstractService{
 
-  constructor() {
+  private _URL = '';
+
+  constructor(private _httpClient: HttpClient) {
     super();
   }
 
@@ -25,7 +28,7 @@ export class ProductService extends ProductAbstractService{
     return null;
   }
 
-  search(params: any): Observable<IProduct> {
+  search(params: any): Observable<IProduct[]> {
     return null;
   }
 
