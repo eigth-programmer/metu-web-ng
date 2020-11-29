@@ -5,6 +5,7 @@ export interface IOrder{
   id: string,
   client: string,
   billingAddress: IBillingAddress,
+  dropAddress: IBillingAddress,
   orderLines: IOrderLine[],
   basePrice: number,
   taxPrice: number,

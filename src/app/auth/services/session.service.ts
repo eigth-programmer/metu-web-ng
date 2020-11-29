@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class SessionWebService extends AbstractSessionService{
+export class SessionService extends AbstractSessionService{
 
   private BASE_URL: string;
 

@@ -1,5 +1,8 @@
+import {IUser} from '../../../../auth/entities/user/domain/IUser';
+
 export interface IReview {
   id: string,
   comment: string,
-  score: number
+  score: number,
+  user: IUser
 }

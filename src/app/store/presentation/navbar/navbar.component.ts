@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginComponent} from '../../../auth/presentation/login/login.component';
-import {SessionWebService} from '../../../auth/services/session-web.service';
+import {SessionService} from '../../../auth/services/session.service';
 import {login} from '../../../auth/entities/session/application/login';
 import {register} from '../../../auth/entities/session/application/register';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private service: SessionWebService) { }
+    private service: SessionService) { }
 
   ngOnInit(){
   }
