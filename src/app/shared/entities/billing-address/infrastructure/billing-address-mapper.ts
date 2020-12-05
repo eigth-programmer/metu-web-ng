@@ -3,6 +3,24 @@ import {IBillingAddress} from '../domain/IBillingAddress';
 
 export class BillingAddressMapper {
   mapTo(entry: any): IBillingAddress{
-    return null;
+    const {id,
+      country,
+      city,
+      street,
+      number,
+      floor,
+      door,
+      postCode} = entry;
+
+    return {
+      id: id,
+      country: country,
+      city: city,
+      street: street,
+      number: number,
+      floor: floor,
+      door: door,
+      postCode: postCode
+    };
   }
 }

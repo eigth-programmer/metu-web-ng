@@ -3,6 +3,12 @@ import {IOrderLine} from '../domain/IOrderLine';
 
 export class OrderLineMapper {
   mapTo(entry: any): IOrderLine{
-    return null;
+    const {price, quantity, product} = entry;
+
+    return {
+      price: price,
+      quantity: quantity,
+      product: product
+    };
   }
 }

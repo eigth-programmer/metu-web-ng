@@ -4,7 +4,7 @@ export interface IBillingAddress {
   city: string,
   street: string,
   number: string,
-  flat: string,
+  floor: string,
   door: string,
   postCode: string
 }

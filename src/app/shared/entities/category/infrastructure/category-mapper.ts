@@ -3,6 +3,11 @@ import {ICategory} from '../domain/ICategory';
 
 export class CategoryMapper {
   mapTo(entry: any): ICategory{
-    return null;
+    const {id, name} = entry;
+
+    return {
+      id: id,
+      name: name
+    };
   }
 }
