@@ -19,6 +19,13 @@ import {RecipeCardComponent} from '../store/presentation/recipe-shop/recipe-card
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {ProductMapper} from './entities/product/infrastructure/product-mapper';
+import {TaxMapper} from './entities/tax/infrastructure/tax-mapper';
+import {OrderMapper} from './entities/order/infrastructure/order-mapper';
+import {BillingAddressMapper} from './entities/billing-address/infrastructure/billing-address-mapper';
+import {CategoryMapper} from './entities/category/infrastructure/category-mapper';
+import {ReviewMapper} from './entities/review/infrastructure/review-mapper';
+import {OrderLineMapper} from './entities/order-line/infrastructure/order-line-mapper';
 
 @NgModule({
   declarations: [
@@ -55,6 +62,13 @@ import {MatInputModule} from '@angular/material/input';
     StoreComponent
   ],
   providers: [
+    {provide: BillingAddressMapper, useValue: BillingAddressMapper},
+    {provide: CategoryMapper, useValue: CategoryMapper},
+    {provide: OrderMapper, useValue: OrderMapper},
+    {provide: OrderLineMapper, useValue: OrderLineMapper},
+    {provide: ProductMapper, useValue: ProductMapper},
+    {provide: ReviewMapper, useValue: ReviewMapper},
+    {provide: TaxMapper, useValue: TaxMapper},
     {provide: MatDialogRef, useValue: {}},
   ]
 })

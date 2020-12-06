@@ -1,6 +1,4 @@
-import {IAdmin} from '../../../../auth/entities/admin/domain/IAdmin';
 import {IReview} from '../domain/IReview';
-import {IUser} from '../../../../auth/entities/user/domain/IUser';
 
 export class ReviewMapper {
   mapTo(entry: any): IReview{
