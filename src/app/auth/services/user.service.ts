@@ -1,35 +1,37 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {UserAbstractService} from '../entities/user/infrastructure/user-abstract-service';
-import {IUser} from '../entities/user/domain/IUser';
 import {IUserOut} from '../entities/user/domain/IUserOut';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {GenericService} from '../../shared/services/generic.service';
+import {endpoints} from '../config/endpoints';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends UserAbstractService{
+export class UserService extends UserAbstractService {
 
-  private _URL = '';
+  constructor(private _generic: GenericService<IUserOut, any>) {
+    super();
+    _generic.url(endpoints.user);
+  }
 
-  constructor(private _httpClient: HttpClient) {super();}
-
-  create(user: IUserOut): Observable<IUser> {
-    return null;
+  create<IUserOut>(user: IUserOut): Observable<any> {
+    return this._generic.create(user);
   }
 
   delete(id: string) {
+    return this._generic.delete(id);
   }
 
-  get(id: string): Observable<IUser> {
-    return null;
+  get(id: string): Observable<any> {
+    return this._generic.get(id);
   }
 
-  search(params: any): Observable<IUser[]> {
-    return null;
+  search(query: any): Observable<any> {
+    return this._generic.search(query);
   }
 
-  update(user: IUserOut): Observable<IUser> {
-    return null;
+  update<IUserOut>(user: IUserOut): Observable<any> {
+    return this._generic.create(user);
   }
 }
