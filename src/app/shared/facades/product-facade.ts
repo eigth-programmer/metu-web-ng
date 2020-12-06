@@ -6,25 +6,27 @@ import {ReviewMapper} from '../entities/review/infrastructure/review-mapper';
 import {CategoryMapper} from '../entities/category/infrastructure/category-mapper';
 
 export class ProductFacade {
+  private _service: ProductAbstractService;
+
   constructor(private _productMapper: ProductMapper,
               private _taxMapper: TaxMapper,
               private _reviewMapper: ReviewMapper,
               private _categoryMapper: CategoryMapper) {
   }
 
-  create(product: IProductOut, service: ProductAbstractService) {
-
+  create(product: IProductOut) {
+    return this._service.create(product);
   }
 
-  update(product: IProductOut, service: ProductAbstractService) {
-
+  update(product: IProductOut) {
+    return this._service.update(product);
   }
 
-  search(query: any, service: ProductAbstractService) {
-
+  search(query: any) {
+    return this._service.search(query);
   }
 
-  delete(id: string, service: ProductAbstractService) {
-
+  delete(id: string) {
+    return this._service.delete(id);
   }
 }

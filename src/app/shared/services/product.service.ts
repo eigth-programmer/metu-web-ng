@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ProductAbstractService} from '../entities/product/infrastructure/product-abstract-service';
 import {IProductOut} from '../entities/product/domain/IProductOut';
 import {Observable} from 'rxjs';
@@ -15,9 +15,20 @@ export class ProductService extends ProductAbstractService{
     _generic.url(endpoints.product);
   }
 
-  create(product: IProductOut): Observable<any>{return this._generic.create(product)}
-  delete(id: string) {return this._generic.delete(id)}
+  create<IProductOut>(product: IProductOut): Observable<any> {
+    return this._generic.create(product);
+  }
+
+  delete(id: string) {
+    return this._generic.delete(id);
+  }
   get(id: string): Observable<any> {return this._generic.get(id)}
-  search(query: any): Observable<any> {return this._generic.search(query)}
-  update(product: IProductOut): Observable<any>{return this._generic.create(product)}
+
+  search(query: any): Observable<any> {
+    return this._generic.search(query);
+  }
+
+  update<IProductOut>(product: IProductOut): Observable<any> {
+    return this._generic.create(product);
+  }
 }

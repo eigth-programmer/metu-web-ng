@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CategoryAbstractService} from '../entities/category/infrastructure/category-abstract-service';
 import {ICategory} from '../entities/category/domain/ICategory';
 import {Observable} from 'rxjs';
@@ -15,8 +15,13 @@ export class CategoryService extends CategoryAbstractService{
     _generic.url(endpoints.category);
   }
 
-  create(category: ICategory): Observable<any>{return this._generic.create(category)}
-  delete(id: string) {return this._generic.delete(id)}
+  create<ICategory>(category: ICategory): Observable<any> {
+    return this._generic.create(category);
+  }
+
+  delete(id: string) {
+    return this._generic.delete(id);
+  }
   get(id: string): Observable<any> {return this._generic.get(id)}
   search(query: any): Observable<any> {return this._generic.search(query)}
 }

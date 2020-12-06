@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {OrderAbstractService} from '../entities/order/infrastructure/order-abstract-service';
 import {IOrderOut} from '../entities/order/domain/IOrderOut';
 import {Observable} from 'rxjs';
@@ -15,9 +15,20 @@ export class OrderService extends OrderAbstractService{
     _generic.url(endpoints.order);
   }
 
-  create(order: IOrderOut): Observable<any>{return this._generic.create(order)}
-  delete(id: string) {return this._generic.delete(id)}
+  create<IOrderOut>(order: IOrderOut): Observable<any> {
+    return this._generic.create(order);
+  }
+
+  delete(id: string) {
+    return this._generic.delete(id);
+  }
   get(id: string): Observable<any> {return this._generic.get(id)}
-  search(query: any): Observable<any> {return this._generic.search(query)}
-  update(order: IOrderOut): Observable<any>{return this._generic.create(order)}
+
+  search(query: any): Observable<any> {
+    return this._generic.search(query);
+  }
+
+  update<IOrderOut>(order: IOrderOut): Observable<any> {
+    return this._generic.create(order);
+  }
 }

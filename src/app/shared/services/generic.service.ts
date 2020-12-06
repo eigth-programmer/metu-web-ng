@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -12,7 +12,7 @@ export class GenericService<O,W> {
 
   constructor(private _httpClient: HttpClient) { }
 
-  create(item: O): Observable<W> {
+  create<O>(item: O): Observable<W> {
     return this._httpClient.post<W>(this._URL, item);
   }
 
@@ -28,7 +28,7 @@ export class GenericService<O,W> {
     return this._httpClient.get<W[]>(this._URL, {params: GenericService._queryBuilder(query)});
   }
 
-  update(item: O): Observable<W> {
+  update<O>(item: O): Observable<W> {
     return this._httpClient.post<W>(this._URL, item);
   }
 
