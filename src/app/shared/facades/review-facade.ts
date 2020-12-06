@@ -1,6 +1,7 @@
 import {ReviewMapper} from '../entities/review/infrastructure/review-mapper';
 import {IReviewOut} from '../entities/review/domain/IReviewOut';
 import {ReviewAbstractService} from '../entities/review/infrastructure/review-abstract-service';
+import {map, toArray} from 'rxjs/operators';
 
 export class ReviewFacade {
   private _service: ReviewAbstractService;
@@ -9,11 +10,15 @@ export class ReviewFacade {
   }
 
   create(review: IReviewOut) {
-    return this._service.create(review);
+    return this._service.create(review).pipe(map(this._mapper.mapTo));
   }
 
   search(query: any) {
-    return this._service.search(query);
+    return this._service.search(query)
+      .pipe(
+        map(this._mapper.mapTo),
+        toArray()
+      );
   }
 
   delete(id: string) {

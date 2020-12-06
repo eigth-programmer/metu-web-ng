@@ -1,29 +1,28 @@
 import {ProductMapper} from '../entities/product/infrastructure/product-mapper';
 import {IProductOut} from '../entities/product/domain/IProductOut';
 import {ProductAbstractService} from '../entities/product/infrastructure/product-abstract-service';
-import {TaxMapper} from '../entities/tax/infrastructure/tax-mapper';
-import {ReviewMapper} from '../entities/review/infrastructure/review-mapper';
-import {CategoryMapper} from '../entities/category/infrastructure/category-mapper';
+import {map, toArray} from 'rxjs/operators';
 
 export class ProductFacade {
   private _service: ProductAbstractService;
 
-  constructor(private _productMapper: ProductMapper,
-              private _taxMapper: TaxMapper,
-              private _reviewMapper: ReviewMapper,
-              private _categoryMapper: CategoryMapper) {
+  constructor(private _mapper: ProductMapper) {
   }
 
   create(product: IProductOut) {
-    return this._service.create(product);
+    return this._service.create(product).pipe(map(this._mapper.mapTo));
   }
 
   update(product: IProductOut) {
-    return this._service.update(product);
+    return this._service.update(product).pipe(map(this._mapper.mapTo));
   }
 
   search(query: any) {
-    return this._service.search(query);
+    return this._service.search(query)
+      .pipe(
+        map(this._mapper.mapTo),
+        toArray()
+      );
   }
 
   delete(id: string) {

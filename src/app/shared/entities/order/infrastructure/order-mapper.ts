@@ -1,11 +1,11 @@
-import {IAdmin} from '../../../../auth/entities/admin/domain/IAdmin';
 import {IOrder} from '../domain/IOrder';
-import {IClient} from '../../../../auth/entities/client/domain/IClient';
-import {IBillingAddress} from '../../billing-address/domain/IBillingAddress';
-import {IOrderLine} from '../../order-line/domain/IOrderLine';
+import {OrderLineMapper} from '../../order-line/infrastructure/order-line-mapper';
 
 export class OrderMapper {
-  mapTo(entry: any): IOrder{
+  constructor(private _orderLineMapper: OrderLineMapper) {
+  }
+
+  mapTo(entry: any): IOrder {
     const {
       id,
       client,
@@ -23,7 +23,7 @@ export class OrderMapper {
       client: client,
       billingAddress: billingAddress,
       dropAddress: dropAddress,
-      orderLines: orderLines,
+      orderLines: orderLines.map(ol => this._orderLineMapper.mapTo(ol)),
       basePrice: basePrice,
       taxPrice: taxPrice,
       paymentMethod: paymentMethod,
