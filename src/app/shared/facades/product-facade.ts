@@ -1,7 +1,7 @@
 import {ProductMapper} from '../entities/product/infrastructure/product-mapper';
 import {IProductOut} from '../entities/product/domain/IProductOut';
 import {ProductAbstractService} from '../entities/product/infrastructure/product-abstract-service';
-import {map, toArray} from 'rxjs/operators';
+import {map, tap, toArray} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 
 @Injectable({
@@ -24,6 +24,7 @@ export class ProductFacade {
   search(query: any) {
     return this._service.search(query)
       .pipe(
+        tap(res => console.log(res)),
         map(this._mapper.mapTo),
         toArray()
       );
@@ -31,5 +32,9 @@ export class ProductFacade {
 
   delete(id: string) {
     return this._service.delete(id);
+  }
+
+  set service(service: ProductAbstractService) {
+    this._service = service;
   }
 }

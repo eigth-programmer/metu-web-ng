@@ -26,6 +26,9 @@ import {BillingAddressMapper} from './entities/billing-address/infrastructure/bi
 import {CategoryMapper} from './entities/category/infrastructure/category-mapper';
 import {ReviewMapper} from './entities/review/infrastructure/review-mapper';
 import {OrderLineMapper} from './entities/order-line/infrastructure/order-line-mapper';
+import {NotFoundComponent} from './presentation/not-found/not-found.component';
+import {ErrorComponent} from './presentation/error/error.component';
+import {ForbiddenComponent} from './presentation/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import {OrderLineMapper} from './entities/order-line/infrastructure/order-line-m
     RecipeShopComponent,
     StoreComponent,
     ProductCardComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    NotFoundComponent,
+    ErrorComponent,
+    ForbiddenComponent
   ],
   imports: [
     CommonModule,

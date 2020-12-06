@@ -15,6 +15,7 @@ export class ProductResolverService implements Resolve<IProductResolved> {
   constructor(private _service: ProductService,
               private _products: ProductFacade,
               private _categories: CategoryFacade) {
+    this._products.service = this._service;
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProductResolved> | Promise<IProductResolved> | IProductResolved {
