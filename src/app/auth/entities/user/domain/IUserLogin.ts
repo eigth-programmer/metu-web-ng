@@ -1,5 +1,4 @@
 export interface IUserLogin {
-  nickName?: string,
-  email?: string,
+  email: string,
   password: string
 }
