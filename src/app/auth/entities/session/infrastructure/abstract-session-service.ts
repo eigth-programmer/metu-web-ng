@@ -1,7 +1,10 @@
 import {Observable} from 'rxjs';
 import {IToken} from '../domain/IToken';
+import {IUserLogin} from '../../user/domain/IUserLogin';
+import {IUserRegister} from '../../user/domain/IUserRegister';
 
 export abstract class AbstractSessionService {
-  abstract login(email: string, password: string): Observable<IToken>;
-  abstract register(email: string, password: string): Observable<IToken>;
+  abstract login(userInfo: IUserLogin): Observable<IToken>;
+
+  abstract register(userInfo: IUserRegister): Observable<IToken>;
 }

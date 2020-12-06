@@ -12,13 +12,13 @@ export abstract class UserAbstractService implements ICreate<IUserOut, any>,
   IDelete,
   IGet<any> {
 
-  abstract create<IUserOut>(user: IUserOut): Observable<IUserOut>;
+  abstract create<IUserOut>(user: IUserOut): Observable<any>;
 
-  abstract update<IUserOut>(user: IUserOut): Observable<IUserOut>;
+  abstract update<IUserOut>(user: IUserOut): Observable<any>;
 
   abstract delete(id: string);
 
-  abstract get(id: string);
+  abstract get(id: string): Observable<any>;
 
-  abstract search(params: any);
+  abstract search(params: any): Observable<any[]>;
 }

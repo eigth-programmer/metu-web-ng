@@ -1,29 +1,29 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AbstractSessionService} from '../entities/session/infrastructure/abstract-session-service';
 import {Observable} from 'rxjs';
 import {IToken} from '../entities/session/domain/IToken';
-import {HttpClient} from '@angular/common/http';
-import {TokenMapper} from '../entities/session/infrastructure/token-mapper';
-import {map} from 'rxjs/operators';
+import {GenericService} from '../../shared/services/generic.service';
+import {IUserOut} from '../entities/user/domain/IUserOut';
+import {endpoints} from '../config/endpoints';
+import {IUserLogin} from '../entities/user/domain/IUserLogin';
+import {IUserRegister} from '../entities/user/domain/IUserRegister';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SessionService extends AbstractSessionService{
+export class SessionService extends AbstractSessionService {
 
-  private BASE_URL: string;
-
-  constructor(private httpClient: HttpClient, private mapper: TokenMapper) {super();}
-
-  login(email: string, password: string): Observable<IToken> {
-    return this.httpClient
-      .post<IToken>(`${this.BASE_URL}/login`, {email: email, password: password})
-      .pipe(map(this.mapper.mapTo));
+  constructor(private _generic: GenericService<IUserOut, IToken>) {
+    super();
+    _generic.url(endpoints.session);
   }
 
-  register(email: string, password: string): Observable<IToken> {
-    return this.httpClient
-      .post<IToken>(`${this.BASE_URL}/register`, {email: email, password: password})
-      .pipe(map(this.mapper.mapTo));
+  login(userInfo: IUserLogin): Observable<IToken> {
+    return this._generic.create(userInfo);
   }
+
+  register(userInfo: IUserRegister): Observable<IToken> {
+    return this._generic.create(userInfo);
+  }
+
 }
