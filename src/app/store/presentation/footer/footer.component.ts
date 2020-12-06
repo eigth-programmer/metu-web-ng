@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {config} from '../../config/config';
 
 @Component({
   selector: 'app-footer',
@@ -9,22 +10,23 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class FooterComponent implements OnInit {
 
   //@TODO configure
-  email: string = "oigresanep@gamil.com";
-  phone: string = "637209358";
-  address: string ="Calle de la piruleta 24";
-  linkedin: string = "https://www.linkedin.com/in/sergio-pe%C3%B1a-bayona-297308128/";
-  facebook: string = "";
-  instagram: string = "";
+  email: string = config.email;
+  phone: string = config.phone;
+  address: string = config.address;
+  linkedin: string = config.linkedin;
+  facebook: string = config.facebook;
+  instagram: string = config.instagram;
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = this.fb.group({
       email: ['', Validators.required],
       message: ['', Validators.required]
-    })
+    });
   }
 
   onClickSend(){
