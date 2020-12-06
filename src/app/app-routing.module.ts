@@ -9,6 +9,9 @@ import {RecipeShopComponent} from './store/presentation/recipe-shop/recipe-shop.
 import {ManagementGuardService} from './auth/middleware/management-guard.service';
 import {AuthGuardService} from './auth/middleware/auth-guard.service';
 import {ProductResolverService} from './store/resolvers/product-resolver.service';
+import {NotFoundComponent} from './shared/presentation/not-found/not-found.component';
+import {ErrorComponent} from './shared/presentation/error/error.component';
+import {ForbiddenComponent} from './shared/presentation/forbidden/forbidden.component';
 
 const routes: Routes = [
   {
@@ -45,8 +48,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService, ManagementGuardService],
   },
   {
+    path: 'error',
+    component: ErrorComponent
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent
+  },
+  {
     path: '**',
-    component: HomeComponent
+    component: NotFoundComponent
   }
 ];
 

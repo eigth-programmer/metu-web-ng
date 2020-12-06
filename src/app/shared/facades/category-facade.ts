@@ -18,7 +18,7 @@ export class CategoryFacade {
   }
 
   search(query: any) {
-    return this._service.delete(query)
+    return this._service.search(query)
       .pipe(
         map(this._mapper.mapTo),
         toArray()
@@ -27,5 +27,9 @@ export class CategoryFacade {
 
   delete(id: string) {
     return this._service.delete(id);
+  }
+
+  set service(service: CategoryAbstractService) {
+    this._service = service;
   }
 }
