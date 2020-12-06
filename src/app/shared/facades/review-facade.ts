@@ -2,7 +2,11 @@ import {ReviewMapper} from '../entities/review/infrastructure/review-mapper';
 import {IReviewOut} from '../entities/review/domain/IReviewOut';
 import {ReviewAbstractService} from '../entities/review/infrastructure/review-abstract-service';
 import {map, toArray} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ReviewFacade {
   private _service: ReviewAbstractService;
 

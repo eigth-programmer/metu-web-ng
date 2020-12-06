@@ -2,7 +2,11 @@ import {ProductMapper} from '../entities/product/infrastructure/product-mapper';
 import {IProductOut} from '../entities/product/domain/IProductOut';
 import {ProductAbstractService} from '../entities/product/infrastructure/product-abstract-service';
 import {map, toArray} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductFacade {
   private _service: ProductAbstractService;
 

@@ -2,7 +2,11 @@ import {CategoryMapper} from '../entities/category/infrastructure/category-mappe
 import {ICategory} from '../entities/category/domain/ICategory';
 import {CategoryAbstractService} from '../entities/category/infrastructure/category-abstract-service';
 import {map, toArray} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class CategoryFacade {
   private _service: CategoryAbstractService;
 

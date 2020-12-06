@@ -2,7 +2,11 @@ import {TaxMapper} from '../entities/tax/infrastructure/tax-mapper';
 import {ITax} from '../entities/tax/domain/ITax';
 import {TaxAbstractService} from '../entities/tax/infrastructure/tax-abstract-service';
 import {map, toArray} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class TaxFacade {
   private _service: TaxAbstractService;
 

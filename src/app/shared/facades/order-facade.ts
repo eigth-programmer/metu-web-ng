@@ -2,7 +2,11 @@ import {OrderMapper} from '../entities/order/infrastructure/order-mapper';
 import {IOrderOut} from '../entities/order/domain/IOrderOut';
 import {OrderAbstractService} from '../entities/order/infrastructure/order-abstract-service';
 import {map, toArray} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class OrderFacade {
   private _service: OrderAbstractService;
 

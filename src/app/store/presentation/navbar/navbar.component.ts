@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginComponent} from '../../../auth/presentation/login/login.component';
 import {SessionService} from '../../../auth/services/session.service';
-import {login} from '../../../auth/entities/session/application/login';
-import {register} from '../../../auth/entities/session/application/register';
 import Swal from 'sweetalert2';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+import {SessionFacade} from '../../../auth/facades/session-facade';
 
 @Component({
   selector: 'app-navbar',
@@ -15,14 +14,16 @@ import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private dialog: MatDialog,
-    private service: SessionService) { }
+    private _dialog: MatDialog,
+    private _service: SessionService,
+    private _facade: SessionFacade) {
+  }
 
   ngOnInit(){
   }
 
   openLogin(){
-    this.dialog
+    this._dialog
       .open(LoginComponent, {
         width: '1050px',
         height: '650px',
@@ -31,7 +32,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(result => {
         if(result){
           if(result.type ==="login"){
-            login(result.username, result.password, this.service)
+            this._facade.login(null)
               .subscribe(res => {
 
               }, error => {
@@ -43,7 +44,7 @@ export class NavbarComponent implements OnInit {
                 })
               });
           } else if(result.type ==="register"){
-            register(result.nickName, result.username, result.password, this.service)
+            this._facade.register(null)
               .subscribe(res => {
 
               }, error => {
@@ -67,7 +68,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openShoppingCart(){
-    this.dialog.open(ShoppingCartComponent, {
+    this._dialog.open(ShoppingCartComponent, {
       width: '1050px',
       height: '650px',
     })

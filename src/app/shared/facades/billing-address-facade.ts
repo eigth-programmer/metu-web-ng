@@ -2,7 +2,11 @@ import {BillingAddressMapper} from '../entities/billing-address/infrastructure/b
 import {IBillingAddress} from '../entities/billing-address/domain/IBillingAddress';
 import {BillingAddressAbstractService} from '../entities/billing-address/infrastructure/billing-address-abstract-service';
 import {map} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class BillingAddressFacade {
   private _service: BillingAddressAbstractService;
 
